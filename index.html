@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#dff6ff">
-<link rel="apple-touch-icon" href="icon.png">
-    
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>Happy Birthday ❤️</title>
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#dffaff">
+
 <style>
+
 :root{
-    --bg1:#dff6ff;
-    --bg2:#edfdfd;
-    --bg3:#b8f0f8;
-    --glass:rgba(255,255,255,.32);
-    --border:rgba(255,255,255,.45);
-    --text:#21435d;
-    --accent:#66cbe8;
-    --accent2:#89e7f5;
-    --shadow:0 18px 45px rgba(40,120,170,.18);
+    --blue:#7edcff;
+    --aqua:#9ff3f5;
+    --white:#ffffff;
+    --text:#193b52;
+    --glass:rgba(255,255,255,.38);
+    --line:rgba(255,255,255,.65);
+    --shadow:0 25px 60px rgba(0,120,180,.2);
 }
+
 
 *{
     margin:0;
@@ -30,466 +31,805 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
-    height:100%;
-    overflow:hidden;
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-    color:var(--text);
-}
 
 body{
+
+    height:100vh;
+    overflow:hidden;
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
+
+    color:var(--text);
+
     background:
-        radial-gradient(circle at top left,#ffffff 0%,transparent 35%),
-        radial-gradient(circle at bottom right,#d8ffff 0%,transparent 40%),
-        linear-gradient(145deg,var(--bg1),var(--bg2),var(--bg3));
+    radial-gradient(circle at top,#ffffff 0%,transparent 35%),
+    linear-gradient(
+        160deg,
+        #dff8ff,
+        #b9eff8,
+        #eaffff
+    );
+
 }
 
-#background{
+
+/* BACKGROUND */
+
+#ocean{
+
     position:fixed;
     inset:0;
     overflow:hidden;
     z-index:0;
+
 }
 
-/* Floating bubbles */
+
+/* floating bubbles */
 
 .bubble{
+
     position:absolute;
-    bottom:-120px;
+    bottom:-100px;
+
     border-radius:50%;
-    background:rgba(255,255,255,.25);
-    border:1px solid rgba(255,255,255,.45);
-    backdrop-filter:blur(4px);
-    animation:float linear infinite;
+
+    background:
+    rgba(255,255,255,.28);
+
+    border:
+    1px solid rgba(255,255,255,.55);
+
+    backdrop-filter:blur(5px);
+
+    animation:
+    rise linear infinite;
+
 }
 
-@keyframes float{
+
+@keyframes rise{
+
     from{
-        transform:translateY(0) translateX(0);
+        transform:
+        translateY(0)
+        translateX(0)
+        scale(1);
+
         opacity:0;
     }
-    10%{opacity:.7;}
-    90%{opacity:.7;}
+
+
+    15%{
+        opacity:.7;
+    }
+
+
     to{
-        transform:translateY(-120vh) translateX(25px);
+
+        transform:
+        translateY(-120vh)
+        translateX(50px)
+        scale(1.15);
+
         opacity:0;
     }
+
 }
 
-/* Water ripple */
 
-.ripple{
+
+/* water waves */
+
+.wave{
+
     position:absolute;
-    width:700px;
-    height:700px;
-    border-radius:50%;
-    border:2px solid rgba(255,255,255,.15);
+
+    bottom:-250px;
+
     left:50%;
-    bottom:-450px;
+
     transform:translateX(-50%);
-    animation:ripple 7s ease-out infinite;
+
+    width:900px;
+    height:900px;
+
+    border-radius:50%;
+
+    border:
+    2px solid rgba(255,255,255,.25);
+
+    animation:
+    wave 8s infinite ease-out;
+
 }
 
-.ripple:nth-child(2){animation-delay:2s;}
-.ripple:nth-child(3){animation-delay:4s;}
 
-@keyframes ripple{
+.wave:nth-child(2){
+    animation-delay:3s;
+}
+
+
+.wave:nth-child(3){
+    animation-delay:6s;
+}
+
+
+@keyframes wave{
+
+
     from{
-        transform:translateX(-50%) scale(.2);
-        opacity:.55;
+
+        transform:
+        translateX(-50%)
+        scale(.2);
+
+        opacity:.6;
+
     }
+
+
     to{
-        transform:translateX(-50%) scale(1.2);
+
+        transform:
+        translateX(-50%)
+        scale(1.4);
+
         opacity:0;
+
     }
+
 }
+
+
+
+/* APP SCREENS */
+
 
 .screen{
+
     position:absolute;
+
     inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:28px;
+
     z-index:2;
-    transition:.7s ease;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    transition:
+    .8s cubic-bezier(.2,.8,.2,1);
+
 }
 
-.hidden{
+
+
+.hide{
+
     opacity:0;
-    transform:translateY(30px);
+
     pointer-events:none;
+
+    transform:
+    translateY(50px)
+    scale(.96);
+
 }
+
+
+
+/* glass card */
 
 .card{
+
+
     width:100%;
+
     max-width:430px;
-    background:var(--glass);
-    backdrop-filter:blur(20px);
-    border:1px solid var(--border);
-    border-radius:34px;
-    padding:34px 28px;
-    box-shadow:var(--shadow);
+
+
+    background:
+    var(--glass);
+
+
+    backdrop-filter:
+    blur(25px);
+
+
+    -webkit-backdrop-filter:
+    blur(25px);
+
+
+    border:
+
+    1px solid var(--line);
+
+
+    border-radius:38px;
+
+
+    padding:
+    38px 28px;
+
+
     text-align:center;
-    animation:appear .9s ease;
+
+
+    box-shadow:
+    var(--shadow);
+
+
+    animation:
+    pop .8s ease;
+
+
 }
 
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(25px) scale(.97);
-    }
-    to{
-        opacity:1;
-        transform:none;
-    }
+
+
+@keyframes pop{
+
+from{
+
+    opacity:0;
+
+    transform:
+    translateY(35px)
+    scale(.94);
+
 }
+
+to{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+}
+
+
 
 h1{
-    font-size:2.4rem;
-    margin-bottom:12px;
+
+    font-size:42px;
+
+    letter-spacing:-1px;
+
+    margin-bottom:15px;
+
 }
+
 
 h2{
-    font-size:2rem;
+
+    font-size:30px;
+
     margin-bottom:18px;
+
 }
+
 
 p{
-    line-height:1.7;
-    font-size:1.08rem;
+
+    font-size:17px;
+
+    line-height:1.6;
+
 }
+
+
 
 .subtitle{
-    opacity:.82;
-    margin-bottom:34px;
+
+    opacity:.75;
+
+    margin-bottom:35px;
+
 }
+
+
+
+/* buttons */
+
 
 button{
+
+
     width:100%;
-    border:none;
-    border-radius:20px;
-    padding:18px;
+
+
     margin-top:28px;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+
+    padding:18px;
+
+
+    border:none;
+
+
+    border-radius:22px;
+
+
     color:white;
-    font-size:1.08rem;
+
+
+    font-size:17px;
+
+
     font-weight:700;
-    box-shadow:0 12px 25px rgba(80,180,220,.28);
-    cursor:pointer;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #68d7ff,
+        #7cefe8
+    );
+
+
+    box-shadow:
+
+    0 15px 35px rgba(70,190,230,.35);
+
+
     transition:.25s;
+
+
 }
+
+
 
 button:active{
-    transform:scale(.97);
+
+    transform:
+    scale(.96);
+
 }
+
+
+
+/* reveal section */
+
+
+.bigReveal{
+
+    font-size:36px;
+
+}
+
+
+.info{
+
+    margin-top:20px;
+
+}
+
+
 
 .weather{
-    margin:24px 0;
-    font-size:1.1rem;
+
+    margin:25px 0;
+
+    font-size:18px;
+
 }
+
+
 
 .checklist{
+
     text-align:left;
-    margin:22px auto;
-    max-width:240px;
-    font-size:1.06rem;
+
+    background:
+
+    rgba(255,255,255,.25);
+
+
+    padding:18px;
+
+    border-radius:22px;
+
+
     line-height:2;
+
+
 }
 
-/* Confetti */
+
+
+/* ticket */
+
+
+.ticket{
+
+
+    margin-top:25px;
+
+
+    padding:25px;
+
+
+    border-radius:28px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,.8),
+    rgba(220,250,255,.55)
+    );
+
+
+    animation:
+    ticket .8s ease;
+
+
+}
+
+
+@keyframes ticket{
+
+from{
+
+transform:
+rotateX(90deg);
+
+opacity:0;
+
+}
+
+to{
+
+transform:none;
+
+opacity:1;
+
+}
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+/* confetti */
 
 .confetti{
-    position:fixed;
-    width:10px;
-    height:16px;
-    top:-20px;
-    animation:fall linear forwards;
-    z-index:999;
+
+position:fixed;
+
+top:-20px;
+
+width:10px;
+
+height:16px;
+
+z-index:20;
+
+animation:
+confettiFall 3s linear forwards;
+
 }
 
-@keyframes fall{
-    to{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity:0;
-    }
+
+@keyframes confettiFall{
+
+
+to{
+
+transform:
+
+translateY(110vh)
+rotate(720deg);
+
+opacity:0;
+
 }
 
-/* Hearts */
+}
+
+
+
+/* hearts */
+
 
 .heart{
-    position:fixed;
-    bottom:-20px;
-    color:#ff4f87;
-    font-size:24px;
-    animation:heartFloat 4s linear forwards;
-    z-index:999;
+
+position:fixed;
+
+bottom:-30px;
+
+font-size:25px;
+
+z-index:30;
+
+animation:
+
+heartRise 4s linear forwards;
+
 }
 
-@keyframes heartFloat{
-    to{
-        transform:
-            translateY(-120vh)
-            translateX(30px)
-            scale(1.4);
-        opacity:0;
-    }
+
+@keyframes heartRise{
+
+
+to{
+
+transform:
+
+translateY(-110vh)
+translateX(40px)
+scale(1.5);
+
+opacity:0;
+
 }
 
-.fade{
-    animation:fade .6s;
 }
 
-@keyframes fade{
-from{opacity:0}
-to{opacity:1}
+
+
+/* splash */
+
+#splash{
+
+
+position:fixed;
+
+inset:0;
+
+background:
+linear-gradient(
+160deg,
+#dff8ff,
+#ffffff
+);
+
+
+z-index:50;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+animation:
+splashOut 2s ease 2s forwards;
+
+
 }
+
+
+
+.logo{
+
+
+font-size:40px;
+
+font-weight:800;
+
+animation:
+
+pulse 1.2s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+
+transform:
+scale(1.08);
+
+}
+
+}
+
+
+
+@keyframes splashOut{
+
+
+to{
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
+}
+
+
 
 .small{
-    margin-top:20px;
-    opacity:.8;
+
+margin-top:15px;
+
+opacity:.7;
+
 }
 
+
 </style>
+
 </head>
+
+
 <body>
 
-<div id="background">
-<div class="ripple"></div>
-<div class="ripple"></div>
-<div class="ripple"></div>
+
+<div id="splash">
+
+<div class="logo">
+❤️
 </div>
 
-<!-- Opening -->
+</div>
 
-<section class="screen" id="start">
+
+<div id="ocean">
+
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+
+</div>
+
+
+
+<!-- OPENING SCREEN -->
+
+<section class="screen" id="home">
+
 
 <div class="card">
 
-<h1>Happy Birthday ❤️</h1>
 
-<p class="subtitle">
-I have a little surprise for you...
-</p>
-
-<button onclick="openGift()">
-Open My Gift
-</button>
-
-</div>
-
-</section>
-
-<!-- Reveal -->
-
-<section class="screen hidden" id="gift">
-
-<div class="card fade">
-
-<h2>Surprise! 🎉</h2>
-
-<h1 style="font-size:2rem;margin-bottom:18px;">
-We're going to<br>Fondy Aqua Park!
+<h1>
+Happy Birthday ❤️
 </h1>
 
-<p>
-I asked you to keep <strong>August 6th</strong> free for a reason.
-If the weather is nice, we're spending the day together at
-<strong>Fondy Aqua Park!</strong> ❤️
+
+<p class="subtitle">
+
+I have a little surprise for you...
+
 </p>
 
-<div class="weather">
-☀️ Weather permitting
-</div>
 
-<div class="checklist">
-✅ Swimsuit<br>
-✅ Towel<br>
-✅ Sunscreen<br>
-✅ Biggest smile 😘
-</div>
+<button onclick="openGift()">
 
-<div id="ticketResult"></div>
+Open My Gift
 
-<button onclick="claimTicket()">
-Claim Your Ticket
 </button>
 
-<div id="moreButton"></div>
 
 </div>
+
 
 </section>
 
-<script>
 
-//////////////////////
-// Floating bubbles //
-//////////////////////
 
-const bg=document.getElementById("background");
 
-for(let i=0;i<24;i++){
 
-let b=document.createElement("div");
-b.className="bubble";
+<!-- MAIN REVEAL -->
 
-let s=15+Math.random()*55;
 
-b.style.width=s+"px";
-b.style.height=s+"px";
-b.style.left=Math.random()*100+"vw";
-b.style.animationDuration=(8+Math.random()*10)+"s";
-b.style.animationDelay=(-Math.random()*15)+"s";
+<section class="screen hide" id="gift">
 
-bg.appendChild(b);
 
-}
+<div class="card">
 
-////////////////////////
 
-function burstConfetti(){
+<h2 class="bigReveal">
 
-const colors=[
-"#7edcff",
-"#7ef3ff",
-"#ffffff",
-"#6dd6ff",
-"#8ef0ff"
-];
+Surprise! 🎉
 
-for(let i=0;i<140;i++){
+</h2>
 
-let c=document.createElement("div");
 
-c.className="confetti";
 
-c.style.left=Math.random()*100+"vw";
-c.style.background=colors[Math.floor(Math.random()*colors.length)];
-c.style.animationDuration=(2+Math.random()*2)+"s";
-c.style.transform="rotate("+Math.random()*360+"deg+")";
+<h2>
 
-document.body.appendChild(c);
+We're going to<br>
 
-setTimeout(()=>c.remove(),4200);
+Fondy Aqua Park!
 
-}
+</h2>
 
-}
 
-function floatingHearts(){
 
-for(let i=0;i<30;i++){
-
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-
-h.style.left=Math.random()*100+"vw";
-h.style.animationDelay=(Math.random()*1.2)+"s";
-h.style.fontSize=(18+Math.random()*18)+"px";
-
-document.body.appendChild(h);
-
-setTimeout(()=>h.remove(),5200);
-
-}
-
-}
-
-///////////////////////////
-
-function openGift(){
-
-document.getElementById("start").classList.add("hidden");
-
-setTimeout(()=>{
-
-document.getElementById("gift").classList.remove("hidden");
-burstConfetti();
-
-},350);
-
-}
-
-function claimTicket(){
-
-burstConfetti();
-
-document.getElementById("ticketResult").innerHTML=`
-<div style="margin-top:28px;animation:appear .6s ease;">
-<h2 style="font-size:1.6rem;">Ticket successfully claimed ❤️</h2>
 <p>
-You only need to bring yourself.<br>
-I'll take care of the rest.
+
+I asked you to keep
+
+<strong>August 6th</strong>
+
+free for a reason.
+
+<br><br>
+
+If the weather is nice,
+
+we're spending the day together
+
+at Fondy Aqua Park! ❤️
+
 </p>
+
+
+
+<div class="weather">
+
+☀️ Weather permitting
+
 </div>
 
-`;
 
-document.getElementById("moreButton").innerHTML=`
-<button onclick="finalSurprise()">
-One More Thing...
+
+<div class="checklist">
+
+✅ Swimsuit<br>
+
+✅ Towel<br>
+
+✅ Sunscreen<br>
+
+✅ Biggest smile 😘
+
+</div>
+
+
+
+<div id="ticketArea"></div>
+
+
+
+<button onclick="claimTicket()">
+
+Claim Your Ticket
+
 </button>
-`;
 
-}
 
-function finalSurprise(){
 
-burstConfetti();
-floatingHearts();
+<div id="finalButton"></div>
 
-document.getElementById("moreButton").innerHTML=`
-<div style="margin-top:26px;animation:appear .8s ease;">
-<h2>❤️</h2>
-<p style="font-size:1.15rem;">
-I love you, and I can't wait to spend your birthday making memories together.
-</p>
-<p class="small">
-Happy Birthday ❤️
-</p>
+
 </div>
-`;
 
-}
 
-//////////////////////////////
-// Optional tiny click sound //
-//////////////////////////////
+</section>
 
-const audioCtx=new(window.AudioContext||window.webkitAudioContext)();
 
-function clickSound(){
-
-let o=audioCtx.createOscillator();
-let g=audioCtx.createGain();
-
-o.connect(g);
-g.connect(audioCtx.destination);
-
-o.type="sine";
-o.frequency.value=600;
-
-g.gain.setValueAtTime(.03,audioCtx.currentTime);
-g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.15);
-
-o.start();
-o.stop(audioCtx.currentTime+.15);
-
-}
-
-document.addEventListener("click",()=>{
-
-if(audioCtx.state==="suspended") audioCtx.resume();
-
-clickSound();
-
-});
-
-</script>
+<!-- JavaScript comes in Part 2 -->
 
 </body>
 </html>
