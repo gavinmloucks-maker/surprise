@@ -7,23 +7,20 @@
 
 <title>Happy Birthday Lily ❤️</title>
 
-<meta name="theme-color" content="#8BE9FF">
+<meta name="theme-color" content="#8FEFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 
 :root{
-    --blue:#72ddff;
-    --aqua:#aef8ff;
+    --blue:#7edcff;
+    --aqua:#9ff3f5;
     --white:#ffffff;
-    --text:#19455e;
     --glass:rgba(255,255,255,.35);
     --border:rgba(255,255,255,.6);
-    --shadow:0 25px 60px rgba(0,120,180,.18);
+    --text:#19445d;
+    --shadow:0 20px 45px rgba(0,140,200,.18);
 }
 
 *{
@@ -42,7 +39,6 @@ body{
     min-height:100vh;
 
     overflow-x:hidden;
-    overflow-y:auto;
 
     font-family:
     -apple-system,
@@ -53,98 +49,43 @@ body{
     color:var(--text);
 
     background:
-    radial-gradient(circle at top,#ffffff 0%,transparent 40%),
     linear-gradient(
         180deg,
-        #eafcff 0%,
-        #d8f7ff 25%,
-        #c3f3ff 60%,
-        #eafcff 100%
+        #dff9ff,
+        #bdefff,
+        #eaffff
     );
 
 }
 
-/* Splash */
-
-#splash{
-
-position:fixed;
-inset:0;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-
-background:linear-gradient(180deg,#ffffff,#dffaff);
-
-z-index:999;
-
-animation:splashFade 2s ease forwards;
-animation-delay:2s;
-
-}
-
-.logo{
-
-font-size:70px;
-
-animation:pulse 1.3s infinite;
-
-}
-
-@keyframes pulse{
-
-50%{
-transform:scale(1.12);
-}
-
-}
-
-@keyframes splashFade{
-
-to{
-
-opacity:0;
-visibility:hidden;
-
-}
-
-}
-
-/* Ocean */
+/* Background */
 
 #ocean{
 
-position:fixed;
-
-inset:0;
-
-overflow:hidden;
-
-z-index:-2;
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    overflow:hidden;
 
 }
 
-/* Waves */
-
 .wave{
 
-position:absolute;
+    position:absolute;
 
-left:50%;
-bottom:-700px;
+    left:50%;
+    bottom:-500px;
 
-width:1400px;
-height:1400px;
+    width:1000px;
+    height:1000px;
 
-border-radius:50%;
+    border-radius:50%;
 
-border:2px solid rgba(255,255,255,.3);
+    border:2px solid rgba(255,255,255,.25);
 
-transform:translateX(-50%) scale(.2);
+    transform:translateX(-50%) scale(.2);
 
-animation:wave 10s infinite;
+    animation:wave 10s infinite;
 
 }
 
@@ -164,35 +105,37 @@ animation-delay:6s;
 
 from{
 
-transform:translateX(-50%) scale(.2);
-opacity:.7;
+transform:
+translateX(-50%)
+scale(.2);
+
+opacity:.6;
 
 }
 
 to{
 
-transform:translateX(-50%) scale(1.5);
+transform:
+translateX(-50%)
+scale(1.4);
+
 opacity:0;
 
 }
 
 }
 
-/* Bubble */
-
 .bubble{
 
 position:absolute;
 
-bottom:-80px;
+bottom:-60px;
 
 border-radius:50%;
 
-background:rgba(255,255,255,.3);
+background:rgba(255,255,255,.35);
 
-border:1px solid rgba(255,255,255,.6);
-
-backdrop-filter:blur(8px);
+border:1px solid rgba(255,255,255,.55);
 
 animation:rise linear infinite;
 
@@ -210,14 +153,15 @@ opacity:0;
 
 20%{
 
-opacity:.8;
+opacity:.7;
 
 }
 
 to{
 
-transform:translateY(-120vh)
-translateX(40px);
+transform:
+translateY(-120vh)
+translateX(35px);
 
 opacity:0;
 
@@ -225,12 +169,7 @@ opacity:0;
 
 }
 
-/* Sections */
-
-.screen,
-.memorySection,
-.letterSection,
-.ending{
+.screen{
 
 min-height:100vh;
 
@@ -240,46 +179,47 @@ align-items:center;
 
 justify-content:center;
 
-padding:50px 22px;
+padding:30px;
 
 }
 
-/* Card */
+.hide{
+
+display:none;
+
+}
 
 .card{
 
 width:100%;
-
-max-width:440px;
+max-width:420px;
 
 padding:35px;
 
-border-radius:34px;
+border-radius:30px;
 
-background:rgba(255,255,255,.35);
+background:var(--glass);
 
-backdrop-filter:blur(25px);
+backdrop-filter:blur(20px);
 
--webkit-backdrop-filter:blur(25px);
-
-border:1px solid rgba(255,255,255,.65);
+border:1px solid var(--border);
 
 box-shadow:var(--shadow);
 
 text-align:center;
 
-animation:cardAppear .8s ease;
+animation:fade .8s ease;
 
 }
 
-@keyframes cardAppear{
+@keyframes fade{
 
 from{
 
 opacity:0;
 
-transform:translateY(35px)
-scale(.95);
+transform:
+translateY(30px);
 
 }
 
@@ -293,8 +233,6 @@ transform:none;
 
 }
 
-/* Typography */
-
 h1{
 
 font-size:42px;
@@ -305,17 +243,9 @@ margin-bottom:18px;
 
 h2{
 
-font-size:31px;
+font-size:30px;
 
-margin-bottom:15px;
-
-}
-
-h3{
-
-font-size:22px;
-
-margin:20px 0;
+margin-bottom:20px;
 
 }
 
@@ -323,161 +253,17 @@ p{
 
 font-size:18px;
 
-line-height:1.8;
+line-height:1.7;
 
 }
 
 .subtitle{
 
+margin-bottom:30px;
+
 opacity:.75;
 
-margin-bottom:25px;
-
 }
-
-/* Images */
-
-.heroImage,
-.photo{
-
-width:100%;
-
-border-radius:24px;
-
-margin:25px 0;
-
-display:block;
-
-box-shadow:0 15px 35px rgba(0,0,0,.18);
-
-transition:.4s;
-
-}
-
-.heroImage:hover,
-.photo:hover{
-
-transform:scale(1.02);
-
-}
-
-/* Gallery */
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:15px;
-
-margin-top:25px;
-
-}
-
-.gallery img{
-
-width:100%;
-
-border-radius:18px;
-
-aspect-ratio:1;
-
-object-fit:cover;
-
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-transition:.3s;
-
-}
-
-.gallery img:hover{
-
-transform:scale(1.05);
-
-}
-
-/* Countdown */
-
-#countdown{
-
-margin:25px 0;
-
-padding:18px;
-
-border-radius:22px;
-
-background:rgba(255,255,255,.45);
-
-font-size:22px;
-
-font-weight:700;
-
-}
-
-/* Checklist */
-
-.checklist{
-
-margin-top:25px;
-
-padding:22px;
-
-text-align:left;
-
-line-height:2.2;
-
-border-radius:24px;
-
-background:rgba(255,255,255,.3);
-
-}
-
-/* Ticket */
-
-.ticket{
-
-margin-top:30px;
-
-padding:28px;
-
-border-radius:30px;
-
-background:white;
-
-border:3px dashed #67dfff;
-
-position:relative;
-
-overflow:hidden;
-
-box-shadow:0 12px 35px rgba(0,0,0,.12);
-
-}
-
-.ticket::before{
-
-content:"VIP";
-
-position:absolute;
-
-top:18px;
-
-right:-35px;
-
-background:#68d7ff;
-
-color:white;
-
-padding:8px 45px;
-
-font-weight:bold;
-
-transform:rotate(40deg);
-
-}
-
-/* Buttons */
 
 button{
 
@@ -489,7 +275,7 @@ padding:18px;
 
 border:none;
 
-border-radius:22px;
+border-radius:18px;
 
 font-size:18px;
 
@@ -497,72 +283,68 @@ font-weight:700;
 
 color:white;
 
-cursor:pointer;
-
-background:linear-gradient(
+background:
+linear-gradient(
 135deg,
-#69d8ff,
-#7cf2ef
+#67d8ff,
+#7cefe8
 );
 
 box-shadow:0 15px 30px rgba(0,180,255,.25);
 
-transition:.25s;
+}
+
+.photo{
+
+width:100%;
+
+border-radius:22px;
+
+margin:25px 0;
+
+box-shadow:0 12px 30px rgba(0,0,0,.15);
 
 }
 
-button:hover{
+.checklist{
 
-transform:translateY(-3px);
+margin-top:20px;
 
-}
+padding:20px;
 
-button:active{
+border-radius:20px;
 
-transform:scale(.97);
+background:rgba(255,255,255,.3);
 
-}
+text-align:left;
 
-/* Hide */
-
-.hide{
-
-display:none;
+line-height:2;
 
 }
 
-/* Hearts */
+#countdown{
 
-.heart{
+margin:25px 0;
 
-position:fixed;
+font-size:22px;
 
-bottom:-40px;
-
-font-size:28px;
-
-pointer-events:none;
-
-animation:heartFloat 5s linear forwards;
+font-weight:bold;
 
 }
 
-@keyframes heartFloat{
+.ticket{
 
-to{
+margin-top:30px;
 
-transform:
-translateY(-120vh)
-translateX(50px)
-scale(1.5);
+padding:25px;
 
-opacity:0;
+border-radius:25px;
+
+background:white;
+
+border:3px dashed #69dfff;
 
 }
-
-}
-
-/* Confetti */
 
 .confetti{
 
@@ -570,15 +352,17 @@ position:fixed;
 
 top:-20px;
 
-width:12px;
+width:10px;
 
-height:18px;
+height:16px;
 
-animation:confettiFall 3.5s linear forwards;
+animation:fall 3s linear forwards;
+
+z-index:999;
 
 }
 
-@keyframes confettiFall{
+@keyframes fall{
 
 to{
 
@@ -592,39 +376,50 @@ opacity:0;
 
 }
 
+.heart{
+
+position:fixed;
+
+bottom:-30px;
+
+font-size:24px;
+
+animation:heart 4s linear forwards;
+
+z-index:999;
+
+}
+
+@keyframes heart{
+
+to{
+
+transform:
+translateY(-110vh)
+translateX(40px)
+scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+/* ===== Part 2 CSS goes here ===== */
+
 </style>
 
 </head>
 
 <body>
 
-<!-- Splash Screen -->
-
-<div id="splash">
-
-    <div class="logo">
-        ❤️
-    </div>
-
-    <h2>Happy Birthday Lily</h2>
-
-    <p>Loading your surprise...</p>
-
-</div>
-
-<!-- Ocean Background -->
-
 <div id="ocean">
 
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
 
 </div>
-
-<!-- Floating Hearts -->
-
-<div id="heartsContainer"></div>
 
 <!-- HOME -->
 
@@ -640,25 +435,13 @@ Happy Birthday Lily ❤️
 
 <p class="subtitle">
 
-I made something special just for you...
-
-</p>
-
-<img src="images/hero.jpg" class="heroImage">
-
-<p>
-
-This isn't just another birthday present.
-
-It's something I wanted to make just for you.
-
-❤️
+I made a little surprise just for you...
 
 </p>
 
 <button onclick="openGift()">
 
-Open My Surprise
+Tap Here ❤️
 
 </button>
 
@@ -666,7 +449,7 @@ Open My Surprise
 
 </section>
 
-<!-- MAIN PAGE -->
+<!-- SURPRISE -->
 
 <section class="screen hide" id="gift">
 
@@ -674,59 +457,31 @@ Open My Surprise
 
 <h2>
 
-Surprise Lily! 🎉
+Surprise! 🎉
 
 </h2>
 
 <p>
 
-Remember when I told you to keep
-
+I asked you to keep
 <strong>August 6th</strong>
+free for a reason...
 
-free?
+<br><br>
 
-</p>
+We're spending the day together at
 
-<h3>
+<strong>Fondy Aqua Park!</strong>
 
-We're going to...
-
-</h3>
-
-<h1>
-
-🌊 Fondy Aqua Park 🌊
-
-</h1>
-
-<img src="images/aquapark.jpg" class="photo">
-
-<div id="countdown"></div>
-
-<p>
-
-If the weather is nice,
-
-we're spending the whole day swimming,
-
-laughing,
-
-and making memories together.
-
-❤️
+🌊❤️
 
 </p>
 
-<div class="weather">
+<!-- PHOTO 1 -->
 
-☀️ Weather permitting
-
-</div>
+<img src="images/fondy1.jpg" class="photo">
 
 <div class="checklist">
-
-<h3>Don't Forget</h3>
 
 ✅ Swimsuit
 
@@ -744,149 +499,15 @@ and making memories together.
 
 </div>
 
-<div id="ticketArea"></div>
+<!-- PHOTO 2 -->
 
-<button onclick="claimTicket()">
+<img src="images/fondy2.jpg" class="photo">
 
-Claim Your VIP Ticket
+<div id="messageArea"></div>
 
-</button>
+<button id="loveButton">
 
-<div id="finalButton"></div>
-
-</div>
-
-</section>
-
-<!-- MEMORY SECTION -->
-
-<section class="memorySection">
-
-<div class="card">
-
-<h2>
-
-📸 Our Favorite Memories
-
-</h2>
-
-<p>
-
-Some of my favorite moments are the ones I get to spend with you.
-
-</p>
-
-<div class="gallery">
-
-<img src="images/us1.jpg">
-
-<img src="images/us2.jpg">
-
-<img src="images/us3.jpg">
-
-<img src="images/us4.jpg">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- LOVE LETTER -->
-
-<section class="letterSection">
-
-<div class="card">
-
-<h2>
-
-💌 A Letter For You
-
-</h2>
-
-<p>
-
-Happy Birthday Lily.
-
-<br><br>
-
-I honestly don't think you realize just how much happiness you bring into my life.
-
-Thank you for every laugh,
-
-every hug,
-
-every smile,
-
-and every memory we've made together.
-
-<br><br>
-
-I'm so excited to spend your birthday with you,
-
-and I hope this day becomes another memory we'll never forget.
-
-<br><br>
-
-You deserve the absolute best,
-
-today and every day.
-
-<br><br>
-
-I love you.
-
-❤️
-
-<br><br>
-
-Love,
-
-<br>
-
-<strong>Gavin</strong>
-
-</p>
-
-</div>
-
-</section>
-
-<!-- FINAL SECTION -->
-
-<section class="ending">
-
-<div class="card">
-
-<h1>
-
-❤️
-
-</h1>
-
-<h2>
-
-One Last Surprise...
-
-</h2>
-
-<p>
-
-No matter where we go,
-
-what we do,
-
-or how crazy life gets,
-
-my favorite place will always be with you.
-
-❤️
-
-</p>
-
-<button onclick="fireworks()">
-
-Celebrate 🎉
+I Can't Wait ❤️
 
 </button>
 
@@ -894,545 +515,175 @@ Celebrate 🎉
 
 </section>
 
-<audio id="music" loop>
-
-<source src="music/song.mp3" type="audio/mpeg">
-
-</audio>
-<!-- =========================
-     OUR STORY
-========================= -->
-
-<section class="memorySection">
-
-<div class="card">
-
-<h1>❤️ Our Story</h1>
-
-<p class="subtitle">
-
-Every memory with you has become one of my favorites.
-
-</p>
-
-<div class="timeline">
-
-<div class="moment">
-
-<img src="images/us1.jpg">
-
-<h3>Our First Adventure</h3>
-
-<p>
-One of the first memories that made me realize
-how much I loved being around you.
-</p>
-
-</div>
-
-<div class="moment">
-
-<img src="images/us2.jpg">
-
-<h3>Laughing Together</h3>
-
-<p>
-You somehow make every day fun,
-even when we're doing absolutely nothing.
-</p>
-
-</div>
-
-<div class="moment">
-
-<img src="images/us3.jpg">
-
-<h3>Favorite Picture</h3>
-
-<p>
-This will always be one of my favorite pictures of us.
-</p>
-
-</div>
-
-<div class="moment">
-
-<img src="images/us4.jpg">
-
-<h3>Today's Adventure</h3>
-
-<p>
-And now we get to make another amazing memory together.
-🌊❤️
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================
-     FINAL LETTER
-========================= -->
-
-<section class="letterSection">
-
-<div class="card">
-
-<h1>💌</h1>
-
-<h2>Happy Birthday Lily</h2>
-
-<p id="typewriter"></p>
-
-</div>
-
-</section>
-
-<!-- =========================
-     GRAND FINALE
-========================= -->
-
-<section class="ending">
-
-<div class="card">
-
-<h1 style="font-size:65px;">
-❤️
-</h1>
-
-<h2>I Love You</h2>
-
-<p>
-
-Thank you for being you.
-
-Thank you for making me smile.
-
-Thank you for making life so much better.
-
-<br><br>
-
-Happy Birthday, Lily.
-
-I can't wait to spend today with you.
-
-❤️
-
-</p>
-
-<button onclick="grandFinale()">
-
-One Last Surprise 🎉
-
-</button>
-
-<div id="endingMessage"></div>
-
-</div>
-
-</section>
 <script>
 
-// ===========================
-// Ocean Bubble Generator
-// ===========================
+// ===============================
+// Floating Bubbles
+// ===============================
 
 const ocean = document.getElementById("ocean");
 
-for(let i = 0; i < 40; i++){
+for(let i=0;i<25;i++){
 
-    const bubble = document.createElement("div");
+    const bubble=document.createElement("div");
 
-    bubble.className = "bubble";
+    bubble.className="bubble";
 
-    const size = Math.random() * 55 + 15;
+    const size=Math.random()*40+15;
 
-    bubble.style.width = size + "px";
-    bubble.style.height = size + "px";
+    bubble.style.width=size+"px";
+    bubble.style.height=size+"px";
 
-    bubble.style.left = Math.random() * 100 + "vw";
+    bubble.style.left=Math.random()*100+"vw";
 
-    bubble.style.animationDuration =
-        (8 + Math.random() * 10) + "s";
+    bubble.style.animationDuration=(8+Math.random()*8)+"s";
 
-    bubble.style.animationDelay =
-        (-Math.random() * 12) + "s";
+    bubble.style.animationDelay=(-Math.random()*10)+"s";
 
     ocean.appendChild(bubble);
 
 }
 
-// ===========================
-// Countdown
-// ===========================
-
-const tripDate = new Date("August 6, 2026 10:00");
-
-function updateCountdown(){
-
-    const countdown = document.getElementById("countdown");
-
-    const now = new Date();
-
-    const difference = tripDate - now;
-
-    if(difference <= 0){
-
-        countdown.innerHTML =
-        "🎉 Today's the big day!";
-
-        return;
-
-    }
-
-    const days =
-        Math.floor(difference / (1000*60*60*24));
-
-    const hours =
-        Math.floor((difference/(1000*60*60))%24);
-
-    countdown.innerHTML =
-        `🌊 ${days} days & ${hours} hours until our adventure!`;
-
-}
-
-updateCountdown();
-
-setInterval(updateCountdown,60000);
-
-// ===========================
+// ===============================
 // Open Gift
-// ===========================
+// ===============================
 
 function openGift(){
 
-    document
-    .getElementById("home")
-    .classList
-    .add("hide");
+    document.getElementById("home").classList.add("hide");
 
-    document
-    .getElementById("gift")
-    .classList
-    .remove("hide");
-
-    confetti();
-
-    hearts();
-
-    haptic();
-
-    const music =
-    document.getElementById("music");
-
-    if(music){
-
-        music.volume = .35;
-
-        music.play().catch(()=>{});
-
-    }
+    document.getElementById("gift").classList.remove("hide");
 
     window.scrollTo({
-
         top:0,
-
         behavior:"smooth"
-
     });
-
-}
-
-// ===========================
-// Claim Ticket
-// ===========================
-
-function claimTicket(){
 
     confetti();
 
-    hearts();
-
-    haptic();
-
-    document
-    .getElementById("ticketArea")
-    .innerHTML = `
-
-<div class="ticket">
-
-<h2>🎟️ VIP Birthday Ticket</h2>
-
-<p>
-
-<strong>Guest:</strong>
-
-Lily ❤️
-
-<br><br>
-
-<strong>Destination:</strong>
-
-Fondy Aqua Park 🌊
-
-<br><br>
-
-<strong>Date:</strong>
-
-August 6
-
-<br><br>
-
-<strong>Admission:</strong>
-
-One unforgettable day together
-
-</p>
-
-</div>
-
-`;
-
-document
-.getElementById("finalButton")
-.innerHTML = `
-
-<button onclick="showLetter()">
-
-One More Surprise ❤️
-
-</button>
-
-`;
-
 }
 
-// ===========================
-// Love Letter
-// ===========================
-
-function showLetter(){
-
-    confetti();
-
-    hearts();
-
-    haptic();
-
-    document
-    .querySelector(".letterSection")
-    .scrollIntoView({
-
-        behavior:"smooth"
-
-    });
-
-}
-
-// ===========================
-// Fireworks
-// ===========================
-
-function fireworks(){
-
-    for(let i=0;i<6;i++){
-
-        setTimeout(()=>{
-
-            confetti();
-
-            hearts();
-
-        },i*600);
-
-    }
-
-}
-
-// ===========================
+// ===============================
 // Confetti
-// ===========================
+// ===============================
 
 function confetti(){
 
-const colors=[
+    const colors=[
+        "#7edcff",
+        "#9ff3f5",
+        "#ffffff",
+        "#ffb3d9"
+    ];
 
-"#ffffff",
+    for(let i=0;i<120;i++){
 
-"#7edcff",
+        const piece=document.createElement("div");
 
-"#71e8ff",
+        piece.className="confetti";
 
-"#9ff7ff",
+        piece.style.left=Math.random()*100+"vw";
 
-"#ff99d8"
+        piece.style.background=
+        colors[Math.floor(Math.random()*colors.length)];
 
-];
+        piece.style.animationDuration=
+        (2+Math.random()*2)+"s";
 
-for(let i=0;i<180;i++){
+        document.body.appendChild(piece);
 
-const piece=document.createElement("div");
+        setTimeout(()=>{
 
-piece.className="confetti";
+            piece.remove();
 
-piece.style.left=Math.random()*100+"vw";
+        },4000);
 
-piece.style.background=
-colors[
-Math.floor(Math.random()*colors.length)
-];
-
-piece.style.animationDuration=
-(2+Math.random()*2)+"s";
-
-piece.style.transform=
-`rotate(${Math.random()*360}deg)`;
-
-document.body.appendChild(piece);
-
-setTimeout(()=>{
-
-piece.remove();
-
-},4000);
+    }
 
 }
 
-}
-
-// ===========================
+// ===============================
 // Hearts
-// ===========================
+// ===============================
 
 function hearts(){
 
-for(let i=0;i<45;i++){
+    for(let i=0;i<35;i++){
 
-const heart=document.createElement("div");
+        const heart=document.createElement("div");
 
-heart.className="heart";
+        heart.className="heart";
 
-heart.innerHTML="❤️";
+        heart.innerHTML="❤️";
 
-heart.style.left=Math.random()*100+"vw";
+        heart.style.left=Math.random()*100+"vw";
 
-heart.style.fontSize=
-(18+Math.random()*22)+"px";
+        heart.style.fontSize=
+        (18+Math.random()*18)+"px";
 
-heart.style.animationDelay=
-Math.random()*2+"s";
+        heart.style.animationDelay=
+        Math.random()*1.5+"s";
 
-document.body.appendChild(heart);
+        document.body.appendChild(heart);
 
-setTimeout(()=>{
+        setTimeout(()=>{
 
-heart.remove();
+            heart.remove();
 
-},5000);
+        },5000);
 
-}
-
-}
-
-// ===========================
-// Haptics
-// ===========================
-
-function haptic(){
-
-if(navigator.vibrate){
-
-navigator.vibrate(20);
+    }
 
 }
 
-}
+// ===============================
+// Final Button
+// ===============================
 
-// ===========================
-// Automatic Photo Slideshow
-// ===========================
+document.getElementById("loveButton").addEventListener("click",()=>{
 
-const photos=[
+    confetti();
 
-"images/us1.jpg",
+    hearts();
 
-"images/us2.jpg",
+    document.getElementById("loveButton").style.display="none";
 
-"images/us3.jpg",
+    document.getElementById("messageArea").innerHTML=`
 
-"images/us4.jpg"
+    <div class="ticket">
 
-];
+        <h2>❤️ Happy Birthday Lily ❤️</h2>
 
-let photoIndex=0;
+        <p>
 
-const hero=document.querySelector(".heroImage");
+        I hope this little surprise made you smile.
 
-setInterval(()=>{
+        <br><br>
 
-if(!hero) return;
+        I seriously can't wait to spend the day with you at
+        <strong>Fondy Aqua Park</strong>.
 
-photoIndex++;
+        <br><br>
 
-if(photoIndex>=photos.length){
+        Thank you for being the amazing person you are.
 
-photoIndex=0;
+        <br><br>
 
-}
+        I love you so much, and I'm excited to make even more memories together.
 
-hero.src=photos[photoIndex];
+        ❤️
 
-},3500);
+        <br><br>
 
-// ===========================
-// Fade Images In
-// ===========================
+        Love,
 
-const observer=new IntersectionObserver(entries=>{
+        <strong>Gavin</strong>
 
-entries.forEach(entry=>{
+        </p>
 
-if(entry.isIntersecting){
+    </div>
 
-entry.target.animate([
-
-{
-
-opacity:0,
-
-transform:"translateY(40px)"
-
-},
-
-{
-
-opacity:1,
-
-transform:"translateY(0)"
-
-}
-
-],{
-
-duration:700,
-
-fill:"forwards"
-
-});
-
-}
-
-});
-
-});
-
-document.querySelectorAll(".card").forEach(card=>{
-
-observer.observe(card);
+    `;
 
 });
 
