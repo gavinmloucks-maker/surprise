@@ -740,10 +740,6 @@ and making memories together.
 
 <br>
 
-✅ Water Shoes
-
-<br>
-
 ✅ Biggest Smile ❤️
 
 </div>
@@ -906,7 +902,404 @@ Celebrate 🎉
 
 <script>
 
-/* PART 3 JAVASCRIPT GOES HERE */
+// ===========================
+// Ocean Bubble Generator
+// ===========================
+
+const ocean = document.getElementById("ocean");
+
+for(let i = 0; i < 40; i++){
+
+    const bubble = document.createElement("div");
+
+    bubble.className = "bubble";
+
+    const size = Math.random() * 55 + 15;
+
+    bubble.style.width = size + "px";
+    bubble.style.height = size + "px";
+
+    bubble.style.left = Math.random() * 100 + "vw";
+
+    bubble.style.animationDuration =
+        (8 + Math.random() * 10) + "s";
+
+    bubble.style.animationDelay =
+        (-Math.random() * 12) + "s";
+
+    ocean.appendChild(bubble);
+
+}
+
+// ===========================
+// Countdown
+// ===========================
+
+const tripDate = new Date("August 6, 2026 10:00");
+
+function updateCountdown(){
+
+    const countdown = document.getElementById("countdown");
+
+    const now = new Date();
+
+    const difference = tripDate - now;
+
+    if(difference <= 0){
+
+        countdown.innerHTML =
+        "🎉 Today's the big day!";
+
+        return;
+
+    }
+
+    const days =
+        Math.floor(difference / (1000*60*60*24));
+
+    const hours =
+        Math.floor((difference/(1000*60*60))%24);
+
+    countdown.innerHTML =
+        `🌊 ${days} days & ${hours} hours until our adventure!`;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,60000);
+
+// ===========================
+// Open Gift
+// ===========================
+
+function openGift(){
+
+    document
+    .getElementById("home")
+    .classList
+    .add("hide");
+
+    document
+    .getElementById("gift")
+    .classList
+    .remove("hide");
+
+    confetti();
+
+    hearts();
+
+    haptic();
+
+    const music =
+    document.getElementById("music");
+
+    if(music){
+
+        music.volume = .35;
+
+        music.play().catch(()=>{});
+
+    }
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+// ===========================
+// Claim Ticket
+// ===========================
+
+function claimTicket(){
+
+    confetti();
+
+    hearts();
+
+    haptic();
+
+    document
+    .getElementById("ticketArea")
+    .innerHTML = `
+
+<div class="ticket">
+
+<h2>🎟️ VIP Birthday Ticket</h2>
+
+<p>
+
+<strong>Guest:</strong>
+
+Lily ❤️
+
+<br><br>
+
+<strong>Destination:</strong>
+
+Fondy Aqua Park 🌊
+
+<br><br>
+
+<strong>Date:</strong>
+
+August 6
+
+<br><br>
+
+<strong>Admission:</strong>
+
+One unforgettable day together
+
+</p>
+
+</div>
+
+`;
+
+document
+.getElementById("finalButton")
+.innerHTML = `
+
+<button onclick="showLetter()">
+
+One More Surprise ❤️
+
+</button>
+
+`;
+
+}
+
+// ===========================
+// Love Letter
+// ===========================
+
+function showLetter(){
+
+    confetti();
+
+    hearts();
+
+    haptic();
+
+    document
+    .querySelector(".letterSection")
+    .scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+}
+
+// ===========================
+// Fireworks
+// ===========================
+
+function fireworks(){
+
+    for(let i=0;i<6;i++){
+
+        setTimeout(()=>{
+
+            confetti();
+
+            hearts();
+
+        },i*600);
+
+    }
+
+}
+
+// ===========================
+// Confetti
+// ===========================
+
+function confetti(){
+
+const colors=[
+
+"#ffffff",
+
+"#7edcff",
+
+"#71e8ff",
+
+"#9ff7ff",
+
+"#ff99d8"
+
+];
+
+for(let i=0;i<180;i++){
+
+const piece=document.createElement("div");
+
+piece.className="confetti";
+
+piece.style.left=Math.random()*100+"vw";
+
+piece.style.background=
+colors[
+Math.floor(Math.random()*colors.length)
+];
+
+piece.style.animationDuration=
+(2+Math.random()*2)+"s";
+
+piece.style.transform=
+`rotate(${Math.random()*360}deg)`;
+
+document.body.appendChild(piece);
+
+setTimeout(()=>{
+
+piece.remove();
+
+},4000);
+
+}
+
+}
+
+// ===========================
+// Hearts
+// ===========================
+
+function hearts(){
+
+for(let i=0;i<45;i++){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(18+Math.random()*22)+"px";
+
+heart.style.animationDelay=
+Math.random()*2+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},5000);
+
+}
+
+}
+
+// ===========================
+// Haptics
+// ===========================
+
+function haptic(){
+
+if(navigator.vibrate){
+
+navigator.vibrate(20);
+
+}
+
+}
+
+// ===========================
+// Automatic Photo Slideshow
+// ===========================
+
+const photos=[
+
+"images/us1.jpg",
+
+"images/us2.jpg",
+
+"images/us3.jpg",
+
+"images/us4.jpg"
+
+];
+
+let photoIndex=0;
+
+const hero=document.querySelector(".heroImage");
+
+setInterval(()=>{
+
+if(!hero) return;
+
+photoIndex++;
+
+if(photoIndex>=photos.length){
+
+photoIndex=0;
+
+}
+
+hero.src=photos[photoIndex];
+
+},3500);
+
+// ===========================
+// Fade Images In
+// ===========================
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate([
+
+{
+
+opacity:0,
+
+transform:"translateY(40px)"
+
+},
+
+{
+
+opacity:1,
+
+transform:"translateY(0)"
+
+}
+
+],{
+
+duration:700,
+
+fill:"forwards"
+
+});
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card").forEach(card=>{
+
+observer.observe(card);
+
+});
 
 </script>
 
