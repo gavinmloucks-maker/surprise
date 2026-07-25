@@ -5,786 +5,144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Happy Birthday ❤️</title>
+<title>Happy Birthday Lily ❤️</title>
 
+<meta name="theme-color" content="#8BE9FF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#dffaff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 
-:root{
-    --blue:#7edcff;
-    --aqua:#9ff3f5;
-    --white:#ffffff;
-    --text:#193b52;
-    --glass:rgba(255,255,255,.38);
-    --line:rgba(255,255,255,.65);
-    --shadow:0 25px 60px rgba(0,120,180,.2);
-}
-
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
-}
-
-
-body{
-
-    height:100vh;
-    overflow:hidden;
-
-    font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "Segoe UI",
-    sans-serif;
-
-    color:var(--text);
-
-    background:
-    radial-gradient(circle at top,#ffffff 0%,transparent 35%),
-    linear-gradient(
-        160deg,
-        #dff8ff,
-        #b9eff8,
-        #eaffff
-    );
-
-}
-
-
-/* BACKGROUND */
-
-#ocean{
-
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    z-index:0;
-
-}
-
-
-/* floating bubbles */
-
-.bubble{
-
-    position:absolute;
-    bottom:-100px;
-
-    border-radius:50%;
-
-    background:
-    rgba(255,255,255,.28);
-
-    border:
-    1px solid rgba(255,255,255,.55);
-
-    backdrop-filter:blur(5px);
-
-    animation:
-    rise linear infinite;
-
-}
-
-
-@keyframes rise{
-
-    from{
-        transform:
-        translateY(0)
-        translateX(0)
-        scale(1);
-
-        opacity:0;
-    }
-
-
-    15%{
-        opacity:.7;
-    }
-
-
-    to{
-
-        transform:
-        translateY(-120vh)
-        translateX(50px)
-        scale(1.15);
-
-        opacity:0;
-    }
-
-}
-
-
-
-/* water waves */
-
-.wave{
-
-    position:absolute;
-
-    bottom:-250px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:900px;
-    height:900px;
-
-    border-radius:50%;
-
-    border:
-    2px solid rgba(255,255,255,.25);
-
-    animation:
-    wave 8s infinite ease-out;
-
-}
-
-
-.wave:nth-child(2){
-    animation-delay:3s;
-}
-
-
-.wave:nth-child(3){
-    animation-delay:6s;
-}
-
-
-@keyframes wave{
-
-
-    from{
-
-        transform:
-        translateX(-50%)
-        scale(.2);
-
-        opacity:.6;
-
-    }
-
-
-    to{
-
-        transform:
-        translateX(-50%)
-        scale(1.4);
-
-        opacity:0;
-
-    }
-
-}
-
-
-
-/* APP SCREENS */
-
-
-.screen{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:2;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:25px;
-
-    transition:
-    .8s cubic-bezier(.2,.8,.2,1);
-
-}
-
-
-
-.hide{
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transform:
-    translateY(50px)
-    scale(.96);
-
-}
-
-
-
-/* glass card */
-
-.card{
-
-
-    width:100%;
-
-    max-width:430px;
-
-
-    background:
-    var(--glass);
-
-
-    backdrop-filter:
-    blur(25px);
-
-
-    -webkit-backdrop-filter:
-    blur(25px);
-
-
-    border:
-
-    1px solid var(--line);
-
-
-    border-radius:38px;
-
-
-    padding:
-    38px 28px;
-
-
-    text-align:center;
-
-
-    box-shadow:
-    var(--shadow);
-
-
-    animation:
-    pop .8s ease;
-
-
-}
-
-
-
-@keyframes pop{
-
-from{
-
-    opacity:0;
-
-    transform:
-    translateY(35px)
-    scale(.94);
-
-}
-
-to{
-
-    opacity:1;
-
-    transform:none;
-
-}
-
-}
-
-
-
-h1{
-
-    font-size:42px;
-
-    letter-spacing:-1px;
-
-    margin-bottom:15px;
-
-}
-
-
-h2{
-
-    font-size:30px;
-
-    margin-bottom:18px;
-
-}
-
-
-p{
-
-    font-size:17px;
-
-    line-height:1.6;
-
-}
-
-
-
-.subtitle{
-
-    opacity:.75;
-
-    margin-bottom:35px;
-
-}
-
-
-
-/* buttons */
-
-
-button{
-
-
-    width:100%;
-
-
-    margin-top:28px;
-
-
-    padding:18px;
-
-
-    border:none;
-
-
-    border-radius:22px;
-
-
-    color:white;
-
-
-    font-size:17px;
-
-
-    font-weight:700;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #68d7ff,
-        #7cefe8
-    );
-
-
-    box-shadow:
-
-    0 15px 35px rgba(70,190,230,.35);
-
-
-    transition:.25s;
-
-
-}
-
-
-
-button:active{
-
-    transform:
-    scale(.96);
-
-}
-
-
-
-/* reveal section */
-
-
-.bigReveal{
-
-    font-size:36px;
-
-}
-
-
-.info{
-
-    margin-top:20px;
-
-}
-
-
-
-.weather{
-
-    margin:25px 0;
-
-    font-size:18px;
-
-}
-
-
-
-.checklist{
-
-    text-align:left;
-
-    background:
-
-    rgba(255,255,255,.25);
-
-
-    padding:18px;
-
-    border-radius:22px;
-
-
-    line-height:2;
-
-
-}
-
-
-
-/* ticket */
-
-
-.ticket{
-
-
-    margin-top:25px;
-
-
-    padding:25px;
-
-
-    border-radius:28px;
-
-
-    background:
-
-    linear-gradient(
-    135deg,
-    rgba(255,255,255,.8),
-    rgba(220,250,255,.55)
-    );
-
-
-    animation:
-    ticket .8s ease;
-
-
-}
-
-
-@keyframes ticket{
-
-from{
-
-transform:
-rotateX(90deg);
-
-opacity:0;
-
-}
-
-to{
-
-transform:none;
-
-opacity:1;
-
-}
-
-}
-
-
-
-.hidden{
-
-display:none;
-
-}
-
-
-
-/* confetti */
-
-.confetti{
-
-position:fixed;
-
-top:-20px;
-
-width:10px;
-
-height:16px;
-
-z-index:20;
-
-animation:
-confettiFall 3s linear forwards;
-
-}
-
-
-@keyframes confettiFall{
-
-
-to{
-
-transform:
-
-translateY(110vh)
-rotate(720deg);
-
-opacity:0;
-
-}
-
-}
-
-
-
-/* hearts */
-
-
-.heart{
-
-position:fixed;
-
-bottom:-30px;
-
-font-size:25px;
-
-z-index:30;
-
-animation:
-
-heartRise 4s linear forwards;
-
-}
-
-
-@keyframes heartRise{
-
-
-to{
-
-transform:
-
-translateY(-110vh)
-translateX(40px)
-scale(1.5);
-
-opacity:0;
-
-}
-
-}
-
-
-
-/* splash */
-
-#splash{
-
-
-position:fixed;
-
-inset:0;
-
-background:
-linear-gradient(
-160deg,
-#dff8ff,
-#ffffff
-);
-
-
-z-index:50;
-
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-
-animation:
-splashOut 2s ease 2s forwards;
-
-
-}
-
-
-
-.logo{
-
-
-font-size:40px;
-
-font-weight:800;
-
-animation:
-
-pulse 1.2s infinite;
-
-}
-
-
-
-@keyframes pulse{
-
-50%{
-
-transform:
-scale(1.08);
-
-}
-
-}
-
-
-
-@keyframes splashOut{
-
-
-to{
-
-opacity:0;
-
-pointer-events:none;
-
-}
-
-}
-
-
-
-.small{
-
-margin-top:15px;
-
-opacity:.7;
-
-}
-
+/* PART 2 CSS GOES HERE */
 
 </style>
 
 </head>
 
-
 <body>
 
+<!-- Splash Screen -->
 
 <div id="splash">
 
-<div class="logo">
-❤️
-</div>
+    <div class="logo">
+        ❤️
+    </div>
+
+    <h2>Happy Birthday Lily</h2>
+
+    <p>Loading your surprise...</p>
 
 </div>
 
+<!-- Ocean Background -->
 
 <div id="ocean">
 
-<div class="wave"></div>
-<div class="wave"></div>
-<div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
 
 </div>
 
+<!-- Floating Hearts -->
 
+<div id="heartsContainer"></div>
 
-<!-- OPENING SCREEN -->
+<!-- HOME -->
 
 <section class="screen" id="home">
 
-
 <div class="card">
 
-
 <h1>
-Happy Birthday ❤️
-</h1>
 
+Happy Birthday Lily ❤️
+
+</h1>
 
 <p class="subtitle">
 
-I have a little surprise for you...
+I made something special just for you...
 
 </p>
 
-
-<button onclick="openGift()">
-
-Open My Gift
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- MAIN REVEAL -->
-
-
-<section class="screen hide" id="gift">
-
-
-<div class="card">
-
-
-<h2 class="bigReveal">
-
-Surprise! 🎉
-
-</h2>
-
-
-
-<h2>
-
-We're going to<br>
-
-Fondy Aqua Park!
-
-</h2>
-
-
+<img src="images/hero.jpg" class="heroImage">
 
 <p>
 
-I asked you to keep
+This isn't just another birthday present.
 
-<strong>August 6th</strong>
+It's something I wanted to make just for you.
 
-free for a reason.
-
-<br><br>
-
-If the weather is nice,
-
-we're spending the day together
-
-at Fondy Aqua Park! ❤️
+❤️
 
 </p>
 
+<button onclick="openGift()">
 
+Open My Surprise
+
+</button>
+
+</div>
+
+</section>
+
+<!-- MAIN PAGE -->
+
+<section class="screen hide" id="gift">
+
+<div class="card">
+
+<h2>
+
+Surprise Lily! 🎉
+
+</h2>
+
+<p>
+
+Remember when I told you to keep
+
+<strong>August 6th</strong>
+
+free?
+
+</p>
+
+<h3>
+
+We're going to...
+
+</h3>
+
+<h1>
+
+🌊 Fondy Aqua Park 🌊
+
+</h1>
+
+<img src="images/aquapark.jpg" class="photo">
+
+<div id="countdown"></div>
+
+<p>
+
+If the weather is nice,
+
+we're spending the whole day swimming,
+
+laughing,
+
+and making memories together.
+
+❤️
+
+</p>
 
 <div class="weather">
 
@@ -792,444 +150,189 @@ at Fondy Aqua Park! ❤️
 
 </div>
 
-
-
 <div class="checklist">
 
-✅ Swimsuit<br>
+<h3>Don't Forget</h3>
 
-✅ Towel<br>
+✅ Swimsuit
 
-✅ Sunscreen<br>
+<br>
 
-✅ Biggest smile 😘
+✅ Towel
+
+<br>
+
+✅ Sunscreen
+
+<br>
+
+✅ Water Shoes
+
+<br>
+
+✅ Biggest Smile ❤️
 
 </div>
-
-
 
 <div id="ticketArea"></div>
 
-
-
 <button onclick="claimTicket()">
 
-Claim Your Ticket
+Claim Your VIP Ticket
 
 </button>
 
-
-
 <div id="finalButton"></div>
-
 
 </div>
 
+</section>
+
+<!-- MEMORY SECTION -->
+
+<section class="memorySection">
+
+<div class="card">
+
+<h2>
+
+📸 Our Favorite Memories
+
+</h2>
+
+<p>
+
+Some of my favorite moments are the ones I get to spend with you.
+
+</p>
+
+<div class="gallery">
+
+<img src="images/us1.jpg">
+
+<img src="images/us2.jpg">
+
+<img src="images/us3.jpg">
+
+<img src="images/us4.jpg">
+
+</div>
+
+</div>
 
 </section>
 
+<!-- LOVE LETTER -->
+
+<section class="letterSection">
+
+<div class="card">
+
+<h2>
+
+💌 A Letter For You
+
+</h2>
+
+<p>
+
+Happy Birthday Lily.
+
+<br><br>
+
+I honestly don't think you realize just how much happiness you bring into my life.
+
+Thank you for every laugh,
+
+every hug,
+
+every smile,
+
+and every memory we've made together.
+
+<br><br>
+
+I'm so excited to spend your birthday with you,
+
+and I hope this day becomes another memory we'll never forget.
+
+<br><br>
+
+You deserve the absolute best,
+
+today and every day.
+
+<br><br>
+
+I love you.
+
+❤️
+
+<br><br>
+
+Love,
+
+<br>
+
+<strong>Gavin</strong>
+
+</p>
+
+</div>
+
+</section>
+
+<!-- FINAL SECTION -->
+
+<section class="ending">
+
+<div class="card">
+
+<h1>
+
+❤️
+
+</h1>
+
+<h2>
+
+One Last Surprise...
+
+</h2>
+
+<p>
+
+No matter where we go,
+
+what we do,
+
+or how crazy life gets,
+
+my favorite place will always be with you.
+
+❤️
+
+</p>
+
+<button onclick="fireworks()">
+
+Celebrate 🎉
+
+</button>
+
+</div>
+
+</section>
+
+<audio id="music" loop>
+
+<source src="music/song.mp3" type="audio/mpeg">
+
+</audio>
 
 <script>
 
-/* =========================
-   CREATE BUBBLES
-========================= */
-
-const ocean = document.getElementById("ocean");
-
-for(let i = 0; i < 30; i++){
-
-    let bubble = document.createElement("div");
-
-    bubble.className = "bubble";
-
-    let size = Math.random() * 55 + 15;
-
-    bubble.style.width = size + "px";
-    bubble.style.height = size + "px";
-
-    bubble.style.left = Math.random()*100 + "vw";
-
-    bubble.style.animationDuration =
-        (8 + Math.random()*12) + "s";
-
-    bubble.style.animationDelay =
-        (-Math.random()*15) + "s";
-
-    ocean.appendChild(bubble);
-
-}
-
-
-
-/* =========================
-   OPEN GIFT
-========================= */
-
-
-function openGift(){
-
-    const home =
-    document.getElementById("home");
-
-    const gift =
-    document.getElementById("gift");
-
-
-    home.classList.add("hide");
-
-
-    setTimeout(()=>{
-
-        gift.classList.remove("hide");
-
-        confetti();
-
-        haptic();
-
-    },600);
-
-}
-
-
-
-
-
-/* =========================
-   CONFETTI
-========================= */
-
-
-function confetti(){
-
-
-    const colors = [
-        "#7edcff",
-        "#9ff3f5",
-        "#ffffff",
-        "#67d5ff",
-        "#ff9fcf"
-    ];
-
-
-    for(let i=0;i<160;i++){
-
-
-        let piece =
-        document.createElement("div");
-
-
-        piece.className =
-        "confetti";
-
-
-        piece.style.left =
-        Math.random()*100 + "vw";
-
-
-        piece.style.background =
-        colors[
-        Math.floor(Math.random()*colors.length)
-        ];
-
-
-        piece.style.animationDuration =
-        (2 + Math.random()*2) + "s";
-
-
-        piece.style.transform =
-        `rotate(${Math.random()*360}deg)`;
-
-
-        document.body.appendChild(piece);
-
-
-
-        setTimeout(()=>{
-
-            piece.remove();
-
-        },4000);
-
-
-    }
-
-
-}
-
-
-
-
-
-/* =========================
-   CLAIM TICKET
-========================= */
-
-
-function claimTicket(){
-
-
-    haptic();
-
-
-    confetti();
-
-
-    document.getElementById("ticketArea").innerHTML = `
-
-
-    <div class="ticket">
-
-
-    <h2>
-    🎟️ Birthday Adventure Ticket
-    </h2>
-
-
-    <p>
-
-    <strong>Destination:</strong><br>
-
-    Fondy Aqua Park 🌊
-
-
-    <br><br>
-
-
-    <strong>Date:</strong><br>
-
-    August 6th ❤️
-
-
-    <br><br>
-
-
-    Admission:
-    One amazing day together
-
-
-    </p>
-
-
-    </div>
-
-
-    `;
-
-
-
-    document.getElementById("finalButton").innerHTML = `
-
-
-    <button onclick="finalSurprise()">
-
-    One More Thing...
-
-    </button>
-
-
-    `;
-
-
-
-}
-
-
-
-
-
-
-/* =========================
-   FINAL MESSAGE
-========================= */
-
-
-function finalSurprise(){
-
-
-    confetti();
-
-    hearts();
-
-    haptic();
-
-
-
-    document.getElementById("finalButton").innerHTML = `
-
-
-    <div class="ticket">
-
-
-    <h2>
-
-    ❤️
-
-    </h2>
-
-
-    <p>
-
-
-    I love you, and I can't wait
-
-    to spend your birthday
-
-    making memories together.
-
-
-    <br><br>
-
-
-    You deserve an amazing day.
-
-    ❤️
-
-
-    </p>
-
-
-    </div>
-
-
-    `;
-
-
-
-}
-
-
-
-
-
-
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-
-function hearts(){
-
-
-    for(let i=0;i<40;i++){
-
-
-        let heart =
-        document.createElement("div");
-
-
-        heart.className =
-        "heart";
-
-
-        heart.innerHTML =
-        "❤️";
-
-
-        heart.style.left =
-        Math.random()*100 + "vw";
-
-
-        heart.style.animationDelay =
-        Math.random()*2 + "s";
-
-
-        heart.style.fontSize =
-        (18 + Math.random()*25) + "px";
-
-
-        document.body.appendChild(heart);
-
-
-
-        setTimeout(()=>{
-
-            heart.remove();
-
-        },5000);
-
-
-    }
-
-}
-
-
-
-
-
-
-/* =========================
-   IPHONE HAPTICS
-========================= */
-
-
-function haptic(){
-
-    if(
-    navigator.vibrate
-    ){
-
-        navigator.vibrate(20);
-
-    }
-
-}
-
-
-
-
-
-
-/* =========================
-   OPTIONAL SOUND
-   (disabled by default)
-========================= */
-
-
-let soundEnabled = false;
-
-
-function softSound(){
-
-
-    if(!soundEnabled)
-    return;
-
-
-    let ctx =
-    new AudioContext();
-
-
-    let osc =
-    ctx.createOscillator();
-
-
-    let gain =
-    ctx.createGain();
-
-
-    osc.connect(gain);
-
-    gain.connect(ctx.destination);
-
-
-
-    osc.frequency.value = 600;
-
-
-    gain.gain.value=.03;
-
-
-    osc.start();
-
-
-    osc.stop(
-    ctx.currentTime+.15
-    );
-
-
-}
-
+/* PART 3 JAVASCRIPT GOES HERE */
 
 </script>
 
