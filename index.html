@@ -515,6 +515,27 @@ I Can't Wait ❤️
 
 </section>
 
+<section class="screen hide" id="videoScreen">
+
+    <div class="card">
+
+        <h2>One Last Thing... ❤️</h2>
+
+        <video
+            id="birthdayVideo"
+            controls
+            autoplay
+            playsinline
+            style="width:100%; border-radius:22px; margin-top:20px;"
+        >
+            <source src="video/birthday.mp4" type="video/mp4">
+            Your browser doesn't support video.
+        </video>
+
+    </div>
+
+</section>
+
 <script>
 
 // ===============================
@@ -643,47 +664,14 @@ function hearts(){
 document.getElementById("loveButton").addEventListener("click",()=>{
 
     confetti();
-
     hearts();
 
-    document.getElementById("loveButton").style.display="none";
+    document.getElementById("gift").classList.add("hide");
+    document.getElementById("videoScreen").classList.remove("hide");
 
-    document.getElementById("messageArea").innerHTML=`
+    const video = document.getElementById("birthdayVideo");
 
-    <div class="ticket">
-
-        <h2>❤️ Happy Birthday Lily ❤️</h2>
-
-        <p>
-
-        I hope this little surprise made you smile.
-
-        <br><br>
-
-        I seriously can't wait to spend the day with you at
-        <strong>Fondy Aqua Park</strong>.
-
-        <br><br>
-
-        Thank you for being the amazing person you are.
-
-        <br><br>
-
-        I love you so much, and I'm excited to make even more memories together.
-
-        ❤️
-
-        <br><br>
-
-        Love,
-
-        <strong>Gavin</strong>
-
-        </p>
-
-    </div>
-
-    `;
+    video.play().catch(()=>{});
 
 });
 
